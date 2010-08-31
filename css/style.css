@@ -9,7 +9,7 @@ body{
     margin: 250px auto 0;
     padding: 1em;
     -moz-border-radius: 3px;
-    -webskit-border-radius: 3px;
+    -webkit-border-radius: 3px;
 }
 
 #loginform h1{
@@ -49,7 +49,7 @@ body{
     width: 650px;
     padding: 1em;
     -moz-border-radius: 4px;
-    -webskit-border-radius: 4px;
+    -webkit-border-radius: 4px;
 }
 
 #favorites_list > ul {
@@ -61,10 +61,10 @@ body{
     margin: 5px 0;
     padding: 5px;
     -moz-border-radius: 4px;
-    -webskit-border-radius: 4px;
+    -webkit-border-radius: 4px;
 }
 #favorites_list li h3{
-    
+    cursor: pointer;
     color: #ffffff;
 }
 
@@ -75,12 +75,12 @@ body{
     width: 30px;
     text-align: center;
     -moz-border-radius: 20px;
-    -webskit-border-radius: 20px;	
+    -webkit-border-radius: 20px;	
 }
 
 .seriesEpisodeList{
     background-color: #ffffff;
-    /*border: 1px solid #000000;*/
+    display: none;
     list-style: none;
     padding: 0;
     -moz-border-radius: 4px;

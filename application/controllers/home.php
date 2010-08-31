@@ -8,7 +8,7 @@ class Home extends Controller {
         if (!is_logged_in())
             redirect('login/index');
 
-        $this->load->model('Series_model', 'sm');
+        $this->load->model('Series_model', 'sm');        
     }
 
     function index() {
@@ -23,6 +23,7 @@ class Home extends Controller {
         }
 
         $data['series_list'] = $seriesList;
+        $data['script_tag'] = '<script type="text/javascript" src="'. base_url() .'/scripts/homeindex.js"> </script>';
         $data['main_content'] = 'home/index';
         $this->load->view('includes/template', $data);
     }
