@@ -1,0 +1,94 @@
+body{
+    background-color: #383838;
+    font-family: arial, verdana;
+}
+#loginform{
+    width: 300px;
+    background: #f0f0f0;
+    border: 1px solid white;
+    margin: 250px auto 0;
+    padding: 1em;
+    -moz-border-radius: 3px;
+    -webskit-border-radius: 3px;
+}
+
+#loginform h1{
+    margin-top: 0;
+    font-family: arial black, arial;
+    text-align: center;
+}
+#loginform input[type=text], #loginform input[type=password] {
+    display: block;
+    margin: 0 0 1em 0;
+    width: 280px;
+    border: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding: 1em;
+}
+
+#loginform input[type=submit]{
+    border: none;
+    margin-right: 1em;
+    padding: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    -moz-border-radius: 4px;
+    -webskit-border-radius: 4px;
+    background: #348075;
+    color: white;
+    box-shadow: 0 1px 0 white;
+    -moz-box-shadow: 0 1px 0 white;
+    -webkit-box-shadow: 0 1px 0 white;
+
+}
+
+#favorites_list{
+    background-color: #ffffff;
+    border: #000000 solid 1px;
+    width: 650px;
+    padding: 1em;
+    -moz-border-radius: 4px;
+    -webskit-border-radius: 4px;
+}
+
+#favorites_list > ul {
+    list-style: none;
+    padding: 0;
+}
+#favorites_list > ul > li{
+    background-color: #00BFFF;
+    margin: 5px 0;
+    padding: 5px;
+    -moz-border-radius: 4px;
+    -webskit-border-radius: 4px;
+}
+#favorites_list li h3{
+    
+    color: #ffffff;
+}
+
+.seriesUnseenCount{
+    background-color: #ffffff;
+    font-size: 9pt;
+    float: right;
+    width: 30px;
+    text-align: center;
+    -moz-border-radius: 20px;
+    -webskit-border-radius: 20px;	
+}
+
+.seriesEpisodeList{
+    background-color: #ffffff;
+    /*border: 1px solid #000000;*/
+    list-style: none;
+    padding: 0;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.seriesEpisodeListSeason{
+    background-color: #00BFFF;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+}
