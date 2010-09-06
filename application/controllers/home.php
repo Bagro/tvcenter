@@ -28,6 +28,14 @@ class Home extends Controller {
         $this->load->view('includes/template', $data);
     }
 
+    function toggleseenstatus()
+    {
+        $episodeId = trim($this->input->post('episodeid'));
+
+        $result = array('status'=>'seen');
+
+        echo json_encode($result);
+    }
 }
 
 ?>

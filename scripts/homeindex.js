@@ -8,3 +8,11 @@ $(document).ready(function(){
    }) ;
 });
 
+function ToggleSeenStatus(id)
+{
+    $.post(base_url + "/home/toggleseenstatus", {"episodeid": + id},
+       function(data){
+           if(data.status == 'seen')
+               $('#toggleSeen'+ id).addClass('seenButton');
+       },"json");
+}

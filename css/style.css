@@ -57,7 +57,7 @@ body{
     padding: 0;
 }
 #favorites_list > ul > li{
-    background-color: #00BFFF;
+    background-color: #0D5995;
     margin: 5px 0;
     padding: 5px;
     -moz-border-radius: 4px;
@@ -88,7 +88,43 @@ body{
 }
 
 .seriesEpisodeListSeason{
-    background-color: #00BFFF;
+    background-color: #0D5995;
     -moz-border-radius: 0px;
     -webkit-border-radius: 0px;
+}
+
+.downloadButton{
+    background-color: #c4c4c4;
+    -moz-border-radius:20px;
+    -webkit-border-radious:20px;
+    font-size: 9pt;
+    color: #000000;
+    width: 25px;
+    float: right;
+    text-align: center;
+    text-decoration: none;
+}
+
+.unSeenButton{
+    background-color: #c4c4c4;
+    -moz-border-radius:20px;
+    -webkit-border-radious:20px;
+    font-size: 9pt;
+    color: #000000;
+    width: 25px;
+    float: right;
+    text-align: center;
+    text-decoration: none;
+}
+
+.seenButton{
+    background-color: #82D23D;
+    -moz-border-radius:20px;
+    -webkit-border-radious:20px;
+    font-size: 9pt;
+    color: #000000;
+    width: 25px;
+    float: right;
+    text-align: center;
+    text-decoration: none;
 }

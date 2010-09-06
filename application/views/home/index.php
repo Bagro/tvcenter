@@ -14,7 +14,9 @@
                         </li>
                     <?php endif; ?>
                     <li>
-                    <?php echo $episode->episodeNr . ': '. $episode->name; ?>
+                    <?php echo $episode->episodeNr . ': '. $episode->name; ?>                        
+                        <a href="#" class="downloadButton">D</a>
+                        <a href="#" id="toggleSeen<?php echo $episode->episodeId ?>" onclick="ToggleSeenStatus(<?php echo $episode->episodeId ?>)" class="unSeenButton">S</a>
                 </li>
                 <?php endforeach; ?>
                 </ul>
