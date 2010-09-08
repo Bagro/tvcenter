@@ -22,17 +22,25 @@ class Home extends Controller {
             $series->episodes = $episodes;
         }
 
+		$latestEpisodes = $this->sm->list_episodes_ordered_by_date(1,10);
+
         $data['series_list'] = $seriesList;
+		$data['episodes_list'] = $latestEpisodes;
         $data['script_tag'] = '<script type="text/javascript" src="'. base_url() .'/scripts/homeindex.js"> </script>';
         $data['main_content'] = 'home/index';
+		$data['left_content'] = 'home/episodeslist';
         $this->load->view('includes/template', $data);
     }
 
     function toggleseenstatus()
     {
         $episodeId = trim($this->input->post('episodeid'));
-
-        $result = array('status'=>'seen');
+		if(is_numeric($episodeId))
+			$status = $this->sm->toggle_episode_seen_status(current_userid(), $episodeId);
+		else
+			$status = '';
+			
+        $result = array('status' => $status);
 
         echo json_encode($result);
     }

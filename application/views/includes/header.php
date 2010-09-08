@@ -11,7 +11,7 @@
         <script type="text/javascript" src="<?php echo base_url(); ?>/scripts/jquery.js"> </script>
         <script type="text/javascript">
         //<![CDATA[
-            base_url = '<?= base_url();?>';
+            base_url = '<?php echo base_url();?>';
         //]]>
         </script>
         <?php
@@ -20,4 +20,5 @@
             } ?>
     </head>
     <body>
+	<div id="page_wrap">
 

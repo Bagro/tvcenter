@@ -2,6 +2,24 @@ body{
     background-color: #383838;
     font-family: arial, verdana;
 }
+#page_wrap{
+	width: 920px;
+	margin:0 auto;
+	background-color: #e3e3e3;
+	overflow:auto;
+	padding:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+}
+#main_content{
+	width: 650px;
+	float: right;
+}
+#left_content{
+	width: 250px;
+	float: left;
+}
+
 #loginform{
     width: 300px;
     background: #f0f0f0;
@@ -46,15 +64,22 @@ body{
 #favorites_list{
     background-color: #ffffff;
     border: #000000 solid 1px;
-    width: 650px;
-    padding: 1em;
+    /*width: 650px;*/
+    padding: 2px 5px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
 }
-
+#favorites_list > h4{
+	margin:2px;
+}
+#favorites_list > ul > li > .poster{
+	float:left;
+	max-height:80px;
+}	
 #favorites_list > ul {
     list-style: none;
     padding: 0;
+	margin:2px;
 }
 #favorites_list > ul > li{
     background-color: #0D5995;
@@ -62,6 +87,7 @@ body{
     padding: 5px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
+	overflow:auto;
 }
 #favorites_list li h3{
     cursor: pointer;
@@ -83,12 +109,14 @@ body{
     display: none;
     list-style: none;
     padding: 0;
+	margin-top:40px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
 }
 
 .seriesEpisodeListSeason{
     background-color: #0D5995;
+	color:#f3f3f3;
     -moz-border-radius: 0px;
     -webkit-border-radius: 0px;
 }
@@ -127,4 +155,42 @@ body{
     float: right;
     text-align: center;
     text-decoration: none;
+}
+
+#latest_episodes_list{
+	background-color: #ffffff;
+   	border: #000000 solid 1px;   	
+   	padding: 2px;
+   	-moz-border-radius: 4px;
+   	-webkit-border-radius: 4px;
+}
+
+#latest_episodes_list ul {
+	list-style: none;
+    padding: 0;
+	margin:2px;
+}
+
+#latest_episodes_list li{
+    background-color: #0D5995;
+    margin: 1;
+    padding: 5px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+}
+
+#latest_episodes_list .episode_title{
+	color:#ffffff;
+	font-size:9pt;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+#latest_episodes_list .episode_info{
+	color:#f3f3f3;
+	font-size:8pt;
+}
+
+#latest_episodes_list h4{
+	margin:2px;
 }
