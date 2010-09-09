@@ -2,9 +2,8 @@
 class Login extends Controller {
 
 	function index()
-	{
-		$data['main_content'] = 'login/login';
-		$this->load->view('includes/template', $data);
+	{		
+		$this->load->view('login/login');
 	}
 	
 	function validate()

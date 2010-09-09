@@ -1,6 +1,6 @@
 $(document).ready(function(){
    $('#favorites_list li h3').click(function(){
-       $(this).parent().children('ul').toggle('slow');
+       $(this).parent().children('ul').toggle();
    }) ;
 });
 

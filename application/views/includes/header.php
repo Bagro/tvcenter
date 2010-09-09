@@ -21,4 +21,12 @@
     </head>
     <body>
 	<div id="page_wrap">
-
+		<div id="nav_bar">
+			<div id="main_menu">
+				<ul>
+					<li><a href="<?php echo base_url(); ?>">Start</a></li>
+					<li><a href="#">Serier</a></li>
+					<li><a href="#">Favoriter</a></li>
+				</ul>
+			</div>
+		</div>

@@ -92,6 +92,8 @@ body{
 #favorites_list li h3{
     cursor: pointer;
     color: #ffffff;
+	margin-top:2px;
+	padding-left:65px;
 }
 
 .seriesUnseenCount{
@@ -109,7 +111,7 @@ body{
     display: none;
     list-style: none;
     padding: 0;
-	margin-top:40px;
+	margin-top:60px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
 }
@@ -193,4 +195,43 @@ body{
 
 #latest_episodes_list h4{
 	margin:2px;
+}
+
+#nav_bar{
+	
+	background-color:#ffffff;
+	border: #000000 solid 1px;
+	border-radius:4px;
+	-moz-border-radius:4px;	
+	-webkit-border-radius:4px;
+	margin:2px;
+	padding:5px;
+}
+
+#main_menu ul{
+	list-style:none;
+	margin:0;
+	padding:0;
+
+}
+
+#main_menu li{
+	display:inline;
+	background-color:#0D5995;
+	text-align:center;
+	width:250px;
+	padding: 4px 10px;	
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+}
+
+#main_menu li a{
+	text-decoration:none;
+	color:#ffffff;
+	font-size:10pt;
+	font-weight:bold;
+}
+#main_menu li a:hover, #latest_episodes_list .episode_title:hover, #favorites_list li h3:hover{
+	color:#C09ABC;
 }
