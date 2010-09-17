@@ -13,13 +13,13 @@
                     if($currentSeason != $episode->seasonNr):
                         $currentSeason = $episode->seasonNr;?>
                         <li class="seriesEpisodeListSeason">
-                            Season <?php echo $currentSeason; ?> :
+                            S&auml;song <?php echo $currentSeason; ?> :
                         </li>
                     <?php endif; ?>
                     <li>
                     <?php echo $episode->episodeNr . ': '. $episode->name; ?>                        
-                        <a href="#" class="downloadButton">D</a>
-                        <a href="#" id="toggleSeen<?php echo $episode->episodeId ?>" onclick="ToggleSeenStatus(<?php echo $episode->episodeId ?>)" class="unSeenButton">S</a>
+                        <a href="<?php echo base_url(); ?>/download/episode/<?php echo $episode->episodeId ?>" class="downloadButton">D</a>
+                        <div id="toggleSeen<?php echo $episode->episodeId ?>" onclick="ToggleSeenStatus(<?php echo $episode->episodeId ?>)" class="unSeenButton">S</div>
                 </li>
                 <?php endforeach; ?>
                 </ul>

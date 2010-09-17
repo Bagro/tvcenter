@@ -126,37 +126,40 @@ body{
 .downloadButton{
     background-color: #c4c4c4;
     -moz-border-radius:20px;
-    -webkit-border-radious:20px;
+    -webkit-border-radius:20px;
     font-size: 9pt;
     color: #000000;
     width: 25px;
     float: right;
     text-align: center;
     text-decoration: none;
+	cursor:pointer;
 }
 
 .unSeenButton{
     background-color: #c4c4c4;
     -moz-border-radius:20px;
-    -webkit-border-radious:20px;
+    -webkit-border-radius:20px;
     font-size: 9pt;
     color: #000000;
     width: 25px;
     float: right;
     text-align: center;
     text-decoration: none;
+	cursor:pointer;
 }
 
 .seenButton{
     background-color: #82D23D;
     -moz-border-radius:20px;
-    -webkit-border-radious:20px;
+    -webkit-border-radius:20px;
     font-size: 9pt;
     color: #000000;
     width: 25px;
     float: right;
     text-align: center;
     text-decoration: none;
+	cursor:pointer;
 }
 
 #latest_episodes_list{
