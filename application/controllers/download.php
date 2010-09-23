@@ -1,9 +1,10 @@
 <?php
 class Download extends Controller{
 	
-	function __constructor(){
-		parent::Controller();
-		if (!is_logged_in())
+	function __construct() {
+        parent::Controller();
+
+        if (!is_logged_in())
             redirect('login/index');
 	}
 	

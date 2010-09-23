@@ -65,6 +65,13 @@ class Series_model extends Model {
 		
 		return $query->result();
 	}
+	
+	function get_episode($episodeId)
+	{
+		$this->db->where('episodeId', $episodeId);
+		$query = $this->db->get('episodes');
+		return $query->result();
+	}
 }
 
 ?>

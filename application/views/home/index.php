@@ -1,3 +1,4 @@
+
 <div id="favorites_list">
 	<h4>Favoriter</h4>
     <ul>
@@ -17,8 +18,8 @@
                         </li>
                     <?php endif; ?>
                     <li>
-                    <?php echo $episode->episodeNr . ': '. $episode->name; ?>                        
-                        <a href="<?php echo base_url(); ?>/download/episode/<?php echo $episode->episodeId ?>" class="downloadButton">D</a>
+                    <span onclick="ShowEpisode(<?php echo $episode->episodeId ?>)"><?php echo $episode->episodeNr . ': '. $episode->name; ?> </span>
+                        <a href="<?php echo base_url(); ?>download/episode/<?php echo $episode->episodeId ?>" class="downloadButton">D</a>
                         <div id="toggleSeen<?php echo $episode->episodeId ?>" onclick="ToggleSeenStatus(<?php echo $episode->episodeId ?>)" class="unSeenButton">S</div>
                 </li>
                 <?php endforeach; ?>

@@ -44,6 +44,16 @@ class Home extends Controller {
 
         echo json_encode($result);
     }
+	
+	function episode($episodeId)
+	{		
+		if(is_numeric($episodeId))
+		{
+			$episode = $this->sm->get_episode($episodeId);
+			$data['episode'] = $episode;
+			echo $this->load->view('episode/episodepopup');
+		}
+	}
 }
 
 ?>
