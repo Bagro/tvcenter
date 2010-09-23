@@ -88,9 +88,6 @@ body{
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
 	overflow:auto;	
-}
-
-#favorites_list > ul > li{
 	cursor:pointer;
 }
 
@@ -259,17 +256,59 @@ body{
 	display:none;
 	position:absolute;
 	background-color:#ffffff;	
-	width:300px;
-	height:300px;
 	z-index: 9002;
 	box-shadow: 0px 0px 20px #000000;
 	-moz-box-shadow: 0px 0px 20px #000000;
 	-webkit-box-shadow: 0px 0px 20px #000000;
-}
-#episode_popup{
-	background-color:#0D5995;
-	border: 5px solid #ffffff;
 	border-radius:5px;
 	-moz-border-radius:5px;	
 	-webkit-border-radius:5px;
+	overflow:auto;
+	min-width:400px;
+	min-height:400px;
+}
+#episode_popup{
+	background-color:#0D5995;
+	border: 5px solid #fff;
+	border-radius:5px;
+	-moz-border-radius:5px;	
+	-webkit-border-radius:5px;
+	width:400px;
+	height:400px;
+	color:#fff;
+}
+
+#episode_popup .poster{
+	float:left;
+	padding:2px;
+	margin:2px;
+	background-color:#fff;
+	border-radius:3px;
+	-moz-border-radius:3px;	
+	-webkit-border-radius:3px;
+}
+
+#episode_popup h3 {
+	color:#fff;
+	padding-left:115px;
+}
+
+.close_btn{		
+	font-weight:bold;
+	color:#0D5995;
+	padding:2px;
+	margin-top:8px;
+	margin-right:10px;
+	width:20px;
+	height:20px;
+	float:right;
+	background-color:#fff;
+	text-align:center;
+	border-radius:50px;
+	-moz-border-radius:50px;	
+	-webkit-border-radius:50px;
+	cursor:pointer;
+	box-shadow: 0px 0px 10px #000000;
+	-moz-box-shadow: 0px 0px 10px #000000;
+	-webkit-box-shadow: 0px 0px 10px #000000;
 }

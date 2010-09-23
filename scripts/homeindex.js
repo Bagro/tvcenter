@@ -4,7 +4,7 @@ $(document).ready(function(){
    }) ;
 
    //Close Popups and Fade Layer
-   $('a.close, #popup_background').live('click', function() { //When clicking on the close or fade layer...
+   $('.close_btn, #popup_background').live('click', function() { //When clicking on the close or fade layer...
        $('#popup_background , #popup_window').fadeOut();
        return false;
    });
@@ -32,6 +32,7 @@ function ShowEpisode(id)
 	
 	var popTop = ($(window).height() / 2) - ($('#popup_window').height() / 2) + $(window).scrollTop();
     var popLeft = ($(window).width() / 2) - ($('#popup_window').width() / 2);
+	
 	$('#popup_window').css({
 	    'top' : popTop,
         'left' : popLeft

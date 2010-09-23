@@ -50,8 +50,13 @@ class Home extends Controller {
 		if(is_numeric($episodeId))
 		{
 			$episode = $this->sm->get_episode($episodeId);
-			$data['episode'] = $episode;
-			echo $this->load->view('episode/episodepopup');
+			if(count($episode) == 0)
+			{
+				echo "Could not find episode.";
+				return;
+			}
+			$data['episode'] = $episode[0];
+			echo $this->load->view('episode/episodepopup', $data);
 		}
 	}
 }

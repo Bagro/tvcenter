@@ -5,7 +5,7 @@
 			if(isset($episodes_list)):
 				foreach($episodes_list as $episode): ?>
 				<li>
-					<a href="#" class="episode_title"><?php echo $episode->episodeNr;?>:&nbsp;<?php echo $episode->name;?></a>
+					<a href="#" class="episode_title" onclick="ShowEpisode(<?php echo $episode->episodeId ?>)"><?php echo $episode->episodeNr;?>:&nbsp;<?php echo $episode->name;?></a>
 					
 					<div class="episode_info">
 						<?php echo $episode->seriesname; ?><br />
