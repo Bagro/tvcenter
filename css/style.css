@@ -87,8 +87,7 @@ body{
     padding: 5px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
-	overflow:auto;	
-	cursor:pointer;
+	overflow:auto;		
 }
 
 #favorites_list li h3{
@@ -96,6 +95,11 @@ body{
     color: #ffffff;
 	margin-top:2px;
 	padding-left:65px;
+	text-shadow: 1px 1px 2px #000
+}
+
+#favorites_list .episodeTitle{
+	cursor:pointer;
 }
 
 .seriesUnseenCount{
@@ -263,34 +267,53 @@ body{
 	border-radius:5px;
 	-moz-border-radius:5px;	
 	-webkit-border-radius:5px;
-	overflow:auto;
+	/*overflow:auto;*/
 	min-width:400px;
-	min-height:400px;
+	min-height:300px;
 }
 #episode_popup{
-	background-color:#0D5995;
+/*	background-color:#0D5995;*/
+	background: -moz-linear-gradient(100% 100% 90deg,#063F6B, #0D5995);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0D5995), to(#063F6B)); 
 	border: 5px solid #fff;
 	border-radius:5px;
 	-moz-border-radius:5px;	
 	-webkit-border-radius:5px;
-	width:400px;
-	height:400px;
+	width:500px;
+	min-height:300px;
 	color:#fff;
 }
 
 #episode_popup .poster{
 	float:left;
 	padding:2px;
-	margin:2px;
+	margin:2px 10px 2px 2px;
 	background-color:#fff;
 	border-radius:3px;
 	-moz-border-radius:3px;	
 	-webkit-border-radius:3px;
+	max-width:100px;
+	max-height:150px;
 }
 
 #episode_popup h3 {
 	color:#fff;
-	padding-left:115px;
+	text-shadow:1px 1px 2px #000;
+}
+
+#episode_popup p{
+	margin:0px 5px 0px 5px;
+}
+
+#episode_popup .unSeenButton , #episode_popup .downloadButton{
+	float:left;
+	background-color:#fff;
+	margin:0px 5px 0px 0px;
+}
+
+#episode_popup .seenButton{
+	float:left;
+	margin:0px 5px 0px 0px;
 }
 
 .close_btn{		

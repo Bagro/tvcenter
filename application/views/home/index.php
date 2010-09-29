@@ -18,7 +18,7 @@
                         </li>
                     <?php endif; ?>
                     <li>
-                    <span onclick="ShowEpisode(<?php echo $episode->episodeId ?>)"><?php echo $episode->episodeNr . ': '. $episode->name; ?> </span>
+                    <span onclick="ShowEpisode(<?php echo $episode->episodeId ?>)" class="episodeTitle"><?php echo $episode->episodeNr . ': '. $episode->name; ?> </span>
                         <a href="<?php echo base_url(); ?>download/episode/<?php echo $episode->episodeId ?>" class="downloadButton">D</a>
                         <div id="toggleSeen<?php echo $episode->episodeId ?>" onclick="ToggleSeenStatus(<?php echo $episode->episodeId ?>)" class="unSeenButton">S</div>
                 </li>

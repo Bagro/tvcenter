@@ -18,10 +18,14 @@ function ToggleSeenStatus(id)
            if(data.status == 'seen'){
 				$('#toggleSeen'+ id).removeClass('unSeenButton')
                	$('#toggleSeen'+ id).addClass('seenButton');
+				$('#ptoggleSeen'+ id).removeClass('unSeenButton')
+               	$('#ptoggleSeen'+ id).addClass('seenButton');
 			}
 			else if(data.status == 'unseen'){
 				$('#toggleSeen' + id).removeClass('seenButton');
 				$('#toggleSeen' + id).addClass('unSeenButton');
+				$('#ptoggleSeen' + id).removeClass('seenButton');
+				$('#ptoggleSeen' + id).addClass('unSeenButton');
 			}
        },"json");
 }
