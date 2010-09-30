@@ -49,7 +49,8 @@ class Home extends Controller {
 	{		
 		if(is_numeric($episodeId))
 		{
-			$episode = $this->sm->get_episode($episodeId);
+			$userId = current_userid();
+			$episode = $this->sm->get_episode($episodeId, $userId);
 			if(count($episode) == 0)
 			{
 				echo "Could not find episode.";

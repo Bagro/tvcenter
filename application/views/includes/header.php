@@ -26,7 +26,7 @@
 			<div id="main_menu">
 				<ul>
 					<li><a href="<?php echo base_url(); ?>">Start</a></li>
-					<li><a href="#">Serier</a></li>
+					<li><a href="<?php echo base_url(); ?>series">Serier</a></li>
 					<li><a href="#">Favoriter</a></li>
 				</ul>
 			</div>

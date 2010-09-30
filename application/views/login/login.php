@@ -24,8 +24,8 @@
     		<h1>Login</h1>
 			<?php
 			echo form_open('login/validate');
-			echo form_input('username', 'Username');
-			echo form_password('password', 'Password');
+			echo form_input('username', 'Username','id="username"');
+			echo form_password('password', 'Password', 'id="password"');
 			echo form_submit('submit', 'Login');
 			echo form_close();
 			?>

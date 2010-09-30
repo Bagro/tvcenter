@@ -2,12 +2,16 @@
 
 class Series_model extends Model {
 
-    function list_series($page, $max_per_page) {
+    function list_series($offset, $max_per_page) {
         $this->db->orderby('name');
-        $query = $this->db->get('series', $max_per_page, $max_per_page * ($page - 1));
+        $query = $this->db->get('series', $max_per_page, $offset);
         return $query->result();
     }
 
+	function series_count(){
+		return $this->db->count_all('series');
+	}
+	
     function list_favorite_series_with_unseen_episodes($userId) {
         $queryStr = "SELECT s.* FROM series s INNER JOIN favoriteseries f ON s.seriesId = f.seriesid
                      WHERE f.userid = $userId AND(SELECT count(*) as a FROM episodes e
@@ -18,6 +22,19 @@ class Series_model extends Model {
         //$query = $this->db->query('SELECT * FROM series s INNER JOIN favoriteseries f ON f.seriesid = s.seriesid WHERE f.userid ='. $userId .' and (select count(*) from episodes ');
         return $query->result();
     }
+
+	function list_episodes_for_series($userId, $seriesId){
+		$this->db->select('episodes.*, seasons.seasonNr, seenepisodes.episodeid as seen');
+		$this->db->from('episodes');
+		$this->db->join('seasons', 'seasons.seasonId = episodes.seasonId');
+		$this->db->join('seenepisodes', 'seenepisodes.episodeid = episodes.episodeid and seenepisodes.userid='. $userId, 'left');
+		$this->db->where('episodes.seriesid ='. $seriesId);
+		$this->db->order_by('seasons.seasonNr');
+		$this->db->order_by('episodes.episodeNr');
+		
+		$query = $this->db->get();
+		return $query->result();
+	}
 
     function list_unseen_episodes_for_series($userId, $seriesId) {
         $queryStr = "SELECT e.*, s.seasonNr FROM episodes e inner join seasons s on s.seasonid=e.seasonid 
@@ -66,10 +83,14 @@ class Series_model extends Model {
 		return $query->result();
 	}
 	
-	function get_episode($episodeId)
+	function get_episode($episodeId, $userId)
 	{
-		$this->db->where('episodeId', $episodeId);
-		$query = $this->db->get('episodes');
+		$this->db->select('episodes.*, seenepisodes.episodeid as seen');
+		$this->db->from('episodes');
+		$this->db->join('seenepisodes', 'seenepisodes.episodeid = episodes.episodeid and seenepisodes.userid='. $userId, 'left');
+		$this->db->where('episodes.episodeId', $episodeId);
+
+		$query = $this->db->get();
 		return $query->result();
 	}
 }

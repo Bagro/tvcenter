@@ -3,7 +3,8 @@ class Login extends Controller {
 
 	function index()
 	{		
-		$this->load->view('login/login');
+		$data['script_tag'] = '<script type="text/javascript" src="'. base_url() .'/scripts/login.js"> </script>';
+		$this->load->view('login/login',$data);
 	}
 	
 	function validate()

@@ -1,6 +1,11 @@
+html {
+	height: 100%
+}
 body{
-    background-color: #383838;
-    font-family: arial, verdana;
+    background: #383838;
+	background:-moz-linear-gradient(100% 100% 90deg,#383838, #212121) ;
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#212121), to(#383838));
+    font-family: arial, verdana;	
 }
 #page_wrap{
 	width: 920px;
@@ -8,6 +13,7 @@ body{
 	background-color: #e3e3e3;
 	overflow:auto;
 	padding:3px;
+	border-radius:3px;
 	-moz-border-radius:3px;
 	-webkit-border-radius:3px;
 }
@@ -23,17 +29,24 @@ body{
 #loginform{
     width: 300px;
     background: #f0f0f0;
+	background: -moz-linear-gradient(100% 100% 90deg,#063F6B, #0D5995);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0D5995), to(#063F6B));
     border: 1px solid white;
     margin: 250px auto 0;
     padding: 1em;
+	border-radius: 3px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
+	box-shadow: 0px 0px 20px #000000;
+	-moz-box-shadow: 0px 0px 20px #000000;
+	-webkit-box-shadow: 0px 0px 20px #000000;
 }
 
 #loginform h1{
-    margin-top: 0;
-    font-family: arial black, arial;
+    margin-top: 0;    
     text-align: center;
+	color:#fff;
+	text-shadow:1px 1px 2px #000;
 }
 #loginform input[type=text], #loginform input[type=password] {
     display: block;
@@ -52,13 +65,15 @@ body{
     text-decoration: none;
     font-size: 12px;
     -moz-border-radius: 4px;
-    -webskit-border-radius: 4px;
-    background: #348075;
+    -webkit-border-radius: 4px;
+    background: -moz-linear-gradient(25% 65% 90deg,#77a90d, #83c210, #95d620 53%,#94d61b 100%); /*#348075;*/
+	background: -webkit-gradient(linear, 0% 0%, 0% 70%, from(#83C210), to(#77A90D), color-stop(.3,#94D61B),color-stop(.5,#95D620));
     color: white;
     box-shadow: 0 1px 0 white;
     -moz-box-shadow: 0 1px 0 white;
     -webkit-box-shadow: 0 1px 0 white;
-
+	text-shadow:1px 1px 1px #000;
+	cursor:pointer;
 }
 
 #favorites_list{
@@ -83,6 +98,8 @@ body{
 }
 #favorites_list > ul > li{
     background-color: #0D5995;
+	background: -moz-linear-gradient(100% 100% 90deg,#063F6B, #0D5995);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0D5995), to(#063F6B));
     margin: 5px 0;
     padding: 5px;
     -moz-border-radius: 4px;
@@ -124,6 +141,8 @@ body{
 
 .seriesEpisodeListSeason{
     background-color: #0D5995;
+	background: -moz-linear-gradient(100% 100% 90deg,#063F6B, #0D5995);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0D5995), to(#063F6B));
 	color:#f3f3f3;
     -moz-border-radius: 0px;
     -webkit-border-radius: 0px;
@@ -184,6 +203,8 @@ body{
 
 #latest_episodes_list li{
     background-color: #0D5995;
+	background: -moz-linear-gradient(100% 100% 90deg,#063F6B, #0D5995);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0D5995), to(#063F6B));
     margin: 1;
     padding: 5px;
     -moz-border-radius: 2px;
@@ -206,8 +227,7 @@ body{
 	margin:2px;
 }
 
-#nav_bar{
-	
+#nav_bar{	
 	background-color:#ffffff;
 	border: #000000 solid 1px;
 	border-radius:4px;
@@ -227,6 +247,8 @@ body{
 #main_menu li{
 	display:inline;
 	background-color:#0D5995;
+	background: -moz-linear-gradient(100% 100% 90deg,#063F6B, #0D5995);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0D5995), to(#063F6B));
 	text-align:center;
 	width:250px;
 	padding: 4px 10px;	
@@ -241,8 +263,8 @@ body{
 	font-size:10pt;
 	font-weight:bold;
 }
-#main_menu li a:hover, #latest_episodes_list .episode_title:hover, #favorites_list li h3:hover{
-	color:#C09ABC;
+#main_menu li a:hover, #latest_episodes_list .episode_title:hover, #favorites_list li h3:hover, #paging a:hover{
+	color:#90d514;
 }
 
 #popup_background{
@@ -267,12 +289,11 @@ body{
 	border-radius:5px;
 	-moz-border-radius:5px;	
 	-webkit-border-radius:5px;
-	/*overflow:auto;*/
 	min-width:400px;
 	min-height:300px;
 }
 #episode_popup{
-/*	background-color:#0D5995;*/
+	background-color:#0D5995;
 	background: -moz-linear-gradient(100% 100% 90deg,#063F6B, #0D5995);
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0D5995), to(#063F6B)); 
 	border: 5px solid #fff;
@@ -334,4 +355,25 @@ body{
 	box-shadow: 0px 0px 10px #000000;
 	-moz-box-shadow: 0px 0px 10px #000000;
 	-webkit-box-shadow: 0px 0px 10px #000000;
+}
+
+#paging{
+	text-align:center;
+	color:#fff;
+	background-color:#0D5995;
+	background: -moz-linear-gradient(100% 100% 90deg,#063F6B, #0D5995);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0D5995), to(#063F6B));
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+#paging a{
+	color: #fff;
+	text-decoration:none;	
+}
+
+#paging strong{
+	
+	color:#90d514;
 }
