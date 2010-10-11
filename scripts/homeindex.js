@@ -1,6 +1,10 @@
 $(document).ready(function(){
    $('#favorites_list li h3').click(function(){
-       $(this).parent().children('ul').toggle();
+       $(this).parent().children('ul').toggle("normal");
+   }) ;
+
+	$('#series_list li h3').click(function(){
+       $(this).parent().children('ul').toggle("normal");
    }) ;
 
    //Close Popups and Fade Layer
@@ -50,4 +54,19 @@ function CloseEpisodeWindow()
 {
 	$('#popup_window').fadeOut();
 	$('#popup_background').fadeOut();
+}
+
+function ToggleFavorite(id)
+{
+    $.post(base_url + "/series/togglefavorite", {"favoriteid": + id},
+       function(data){
+           if(data.status == 'favorite'){
+				$('#togglefavorite'+ id).removeClass('notFavoriteButton')
+               	$('#togglefavorite'+ id).addClass('favoriteButton');
+			}
+			else if(data.status == 'notfavorite'){
+				$('#togglefavorite' + id).removeClass('favoriteButton');
+				$('#togglefavorite' + id).addClass('notFavoriteButton');
+			}
+       },"json");
 }

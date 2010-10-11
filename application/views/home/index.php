@@ -1,10 +1,11 @@
 
 <div id="favorites_list">
-	<h4>Favoriter</h4>
+	<h4>Osedda favoriter</h4>
     <ul>
         <?php foreach ($series_list as $series): ?>
             <li>
                 <div class="seriesUnseenCount"><?php echo $series->numEpisodes; ?></div>
+				<div id="togglefavorite<?php echo $series->seriesId; ?>" onclick="ToggleFavorite(<?php echo $series->seriesId; ?>)" class="favoriteButton">F</div>
 				<img src="<?php echo base_url(); ?>/posters/<?php echo $series->image; ?>" class="poster" />
                 <h3><?php echo $series->name; ?></h3>
 				

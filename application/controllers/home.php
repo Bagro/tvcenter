@@ -59,7 +59,7 @@ class Home extends Controller {
 			$data['episode'] = $episode[0];
 			echo $this->load->view('episode/episodepopup', $data);
 		}
-	}
+	}	
 }
 
 ?>

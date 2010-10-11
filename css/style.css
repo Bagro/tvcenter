@@ -1,5 +1,5 @@
 html {
-	height: 100%
+	min-height: 100%
 }
 body{
     background: #383838;
@@ -187,6 +187,34 @@ body{
 	cursor:pointer;
 }
 
+.notFavoriteButton{
+    background-color: #fff;
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+    font-size: 9pt;
+    color: #000000;
+    width: 25px;
+    float: right;
+    text-align: center;
+    text-decoration: none;
+	cursor:pointer;
+	margin-right:5px;
+}
+
+.favoriteButton{
+    background-color: #82D23D;
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+    font-size: 9pt;
+    color: #000000;
+    width: 25px;
+    float: right;
+    text-align: center;
+    text-decoration: none;
+	cursor:pointer;
+	margin-right:5px;
+}
+
 #latest_episodes_list{
 	background-color: #ffffff;
    	border: #000000 solid 1px;   	
@@ -263,7 +291,7 @@ body{
 	font-size:10pt;
 	font-weight:bold;
 }
-#main_menu li a:hover, #latest_episodes_list .episode_title:hover, #favorites_list li h3:hover, #paging a:hover{
+#main_menu li a:hover, #latest_episodes_list .episode_title:hover, #favorites_list li h3:hover, #paging a:hover, #series_list li h3:hover{
 	color:#90d514;
 }
 
@@ -376,4 +404,50 @@ body{
 #paging strong{
 	
 	color:#90d514;
+}
+
+#series_list{
+    background-color: #ffffff;
+    border: #000000 solid 1px;
+    /*width: 650px;*/
+    padding: 2px 5px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+#series_list > h4{
+	margin:2px;
+}
+
+#series_list > ul > li > .poster{
+	float:left;
+	max-height:80px;
+}
+	
+#series_list > ul {
+    list-style: none;
+    padding: 0;
+	margin:2px;
+}
+#series_list > ul > li{
+    background-color: #0D5995;
+	background: -moz-linear-gradient(100% 100% 90deg,#063F6B, #0D5995);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0D5995), to(#063F6B));
+    margin: 5px 0;
+    padding: 5px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+	overflow:auto;		
+}
+
+#series_list li h3{
+    cursor: pointer;
+    color: #ffffff;
+	margin-top:2px;
+	padding-left:65px;
+	text-shadow: 1px 1px 2px #000
+}
+
+#series_list .episodeTitle{
+	cursor:pointer;
 }

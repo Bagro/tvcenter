@@ -2,14 +2,35 @@
 
 class Series_model extends Model {
 
-    function list_series($offset, $max_per_page) {
-        $this->db->orderby('name');
-        $query = $this->db->get('series', $max_per_page, $offset);
+    function list_series($userId, $offset, $max_per_page) {
+        $this->db->select('series.*, favoriteseries.seriesid as favorite');
+		$this->db->from('series');
+		$this->db->join('favoriteseries', 'series.seriesid = favoriteseries.seriesid and favoriteseries.userid = '. $userId, 'left');
+		$this->db->limit($max_per_page, $offset);
+		$this->db->orderby('name');
+        $query = $this->db->get();
         return $query->result();
     }
 
 	function series_count(){
 		return $this->db->count_all('series');
+	}
+	
+	function list_favorite_series($userId, $offset, $max_per_page) {
+        $this->db->select('series.*, favoriteseries.seriesid as favorite');
+		$this->db->from('series');
+		$this->db->join('favoriteseries', 'series.seriesid = favoriteseries.seriesid and favoriteseries.userid = '. $userId);
+		$this->db->limit($max_per_page, $offset);
+		$this->db->orderby('name');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+	function favorite_series_count($userId){
+		$this->db->from('series');
+		$this->db->join('favoriteseries', 'series.seriesid = favoriteseries.seriesid and favoriteseries.userid = '. $userId);
+		$query = $this->db->get();
+		return $query->num_rows();
 	}
 	
     function list_favorite_series_with_unseen_episodes($userId) {
@@ -19,7 +40,7 @@ class Series_model extends Model {
                                                         SELECT episodeId FROM seenepisodes WHERE userid = $userId)
                     ) > 0 order by s.name";
         $query = $this->db->query($queryStr);
-        //$query = $this->db->query('SELECT * FROM series s INNER JOIN favoriteseries f ON f.seriesid = s.seriesid WHERE f.userid ='. $userId .' and (select count(*) from episodes ');
+        
         return $query->result();
     }
 
@@ -59,6 +80,23 @@ class Series_model extends Model {
 			$queryStr = "insert into seenepisodes (userid,episodeid) values($userid, $episodeid)";
 			$this->db->query($queryStr);
 			return 'seen';
+		}
+	}
+	
+	function toggle_favorite($userId, $seriesId){
+		$this->db->from('favoriteseries');
+		$this->db->where('userid', $userId);
+		$this->db->where('seriesid', $seriesId);
+		$query = $this->db->get();
+		if($query->num_rows() > 0)
+		{
+			$this->db->delete('favoriteseries', array('userid' => $userId, 'seriesid' => $seriesId));
+			return 'notfavorite';
+		}
+		else
+		{
+			$this->db->insert('favoriteseries', array('userid' => $userId, 'seriesid' => $seriesId));
+			return 'favorite';
 		}
 	}
 	

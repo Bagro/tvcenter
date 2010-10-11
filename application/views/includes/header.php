@@ -27,7 +27,8 @@
 				<ul>
 					<li><a href="<?php echo base_url(); ?>">Start</a></li>
 					<li><a href="<?php echo base_url(); ?>series">Serier</a></li>
-					<li><a href="#">Favoriter</a></li>
+					<li><a href="<?php echo base_url(); ?>series/favorites">Favoriter</a></li>
+					<li><a href="<?php echo base_url(); ?>login/logout">Logga ut</a></li>
 				</ul>
 			</div>
 		</div>

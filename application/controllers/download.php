@@ -23,7 +23,7 @@ class Download extends Controller{
 			$this->SendFile($row->fullname);
 		}
 	}
-	
+		
 	private function SendFile($path) {
 	    
 	    if (!is_file($path) || connection_status()!=0)
