@@ -1,3 +1,5 @@
+var searchTextDefault = '';
+
 $(document).ready(function(){
    $('#favorites_list li h3').click(function(){
        $(this).parent().children('ul').toggle("normal");
@@ -12,7 +14,17 @@ $(document).ready(function(){
        $('#popup_background , #popup_window').fadeOut();
        return false;
    });
-
+	
+	searchTextDefault = $('#searchtext').val();
+	
+	$('#searchtext').focus(function(){
+		if(searchTextDefault == $('#searchtext').val())
+			$('#searchtext').val('');
+	});
+	$('#searchtext').blur(function(){
+		if($('#searchtext').val().length == 0)
+			$('#searchtext').val(searchTextDefault);
+	});
 });
 
 function ToggleSeenStatus(id)

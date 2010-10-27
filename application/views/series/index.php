@@ -4,10 +4,10 @@
     <ul>
         <?php foreach ($series_list as $series): ?>
             <li>
-                <div class="seriesUnseenCount">
+                <div class="seriesUnseenCount" title="Totalt antal avsnitt">
 					<?php echo $series->numEpisodes; ?>
 				</div>
-				<div id="togglefavorite<?php echo $series->seriesId; ?>" onclick="ToggleFavorite(<?php echo $series->seriesId; ?>)" class="<?php if(isset($series->favorite)) echo 'favoriteButton'; else echo 'notFavoriteButton'; ?>">F</div>
+				<div id="togglefavorite<?php echo $series->seriesId; ?>" onclick="ToggleFavorite(<?php echo $series->seriesId; ?>)" class="<?php if(isset($series->favorite)) echo 'favoriteButton'; else echo 'notFavoriteButton'; ?>" title="Markera serie som favorit">F</div>
 					
 				<img src="<?php echo base_url(); ?>/posters/<?php echo $series->image; ?>" class="poster" />
                 <h3>
@@ -27,8 +27,8 @@
                     			<span onclick="ShowEpisode(<?php echo $episode->episodeId ?>)" class="episodeTitle">
 									<?php echo $episode->episodeNr . ': '. $episode->name; ?> 
 								</span>
-                    			<a href="<?php echo base_url(); ?>download/episode/<?php echo $episode->episodeId ?>" class="downloadButton">D</a>
-                    			<div id="toggleSeen<?php echo $episode->episodeId ?>" onclick="ToggleSeenStatus(<?php echo $episode->episodeId ?>)" class="<?php if(isset($episode->seen)) echo "seenButton"; else echo "unSeenButton"; ?>">S</div>
+                    			<a href="<?php echo base_url(); ?>download/episode/<?php echo $episode->episodeId ?>" class="downloadButton" title="Ladda ner">D</a>
+                    			<div id="toggleSeen<?php echo $episode->episodeId ?>" onclick="ToggleSeenStatus(<?php echo $episode->episodeId ?>)" class="<?php if(isset($episode->seen)) echo "seenButton"; else echo "unSeenButton"; ?>" title="Markera som sett">S</div>
                 			</li>
                 		<?php endforeach; ?>
                 </ul>
@@ -36,6 +36,9 @@
         <?php endforeach; ?>
     </ul>
 	<div id="paging">
-		<?php echo $pagenation;?>
+		<?php
+		 	if(isset($pagenation))
+				echo $pagenation;
+		?>
 	</div>
 </div>

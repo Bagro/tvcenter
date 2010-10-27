@@ -14,12 +14,19 @@ class Download extends Controller{
 	
 	function episode($episodeId){		
 		$this->load->model('Files_model', 'fm');
+		$userId = current_userid();
 		
 		$query = $this->fm->GetFullFileName($episodeId);
+		
+		$ip = $this->input->ip_address();
+		
+		if (!$this->input->valid_ip($ip))
+			return;
 		
 		if($query->num_rows() > 0)
 		{
 			$row = $query->row();
+			$this->fm->RegisterDownload($userId, $row->fileId, $ip);
 			$this->SendFile($row->fullname);
 		}
 	}

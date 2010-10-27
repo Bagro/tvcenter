@@ -12,6 +12,16 @@ class Series_model extends Model {
         return $query->result();
     }
 
+	function search_series($userId, $searchstring){
+		$this->db->select('series.*, favoriteseries.seriesid as favorite');
+		$this->db->from('series');
+		$this->db->join('favoriteseries', 'series.seriesid = favoriteseries.seriesid and favoriteseries.userid = '. $userId, 'left');
+		$this->db->like('series.name', $searchstring);
+		$this->db->orderby('name');
+        $query = $this->db->get();
+        return $query->result();
+	}
+	
 	function series_count(){
 		return $this->db->count_all('series');
 	}
@@ -131,6 +141,13 @@ class Series_model extends Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+	
+	function get_all_files(){
+		$this->db->orderby('fullname');
+		$query = $this->db->get('episodefiles');
+		return $query->result();
+	}
+	
 }
 
 ?>

@@ -295,6 +295,39 @@ body{
 	color:#90d514;
 }
 
+#top_search{
+	float:right;
+	white-space:nowrap;	
+}
+
+#top_search input[type=text] {
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	box-shadow: 0px 0px 1px #000000;
+	-moz-box-shadow: 0px 0px 1px #000000;
+	-webkit-box-shadow: 0px 0px 1px #000000;
+	margin-right:5px;
+}
+
+#top_search input[type=submit]{
+    border: none;
+    margin-right: 1em;
+    padding: 2px;
+    text-decoration: none;
+    font-size: 12px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    background: -moz-linear-gradient(25% 65% 90deg,#77a90d, #83c210, #95d620 53%,#94d61b 100%); /*#348075;*/
+	background: -webkit-gradient(linear, 0% 0%, 0% 70%, from(#83C210), to(#77A90D), color-stop(.3,#94D61B),color-stop(.5,#95D620));
+    color: white;
+    box-shadow: 0 1px 0 white;
+    -moz-box-shadow: 0 1px 0 white;
+    -webkit-box-shadow: 0 1px 0 white;
+	text-shadow:1px 1px 1px #000;
+	cursor:pointer;
+}
+
 #popup_background{
 	display:none;
 	background: #000;

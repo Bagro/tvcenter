@@ -27,6 +27,29 @@ class Series extends Controller{
 		$this->generateFavoritePage($offset);
 	}
 	
+	function search(){
+		$searchstring = $this->input->post('searchtext');
+		
+		$userId = current_userid();
+		$seriesList = $this->sm->search_series($userId, $searchstring);
+		
+		foreach ($seriesList as $series) {
+            $episodes = $this->sm->list_episodes_for_series($userId, $series->seriesId);
+            $series->numEpisodes = count($episodes);
+            $series->episodes = $episodes;
+        }
+
+		$latestEpisodes = $this->sm->list_episodes_ordered_by_date(1,10);
+		$data['list_title'] = 'Serier';
+		$data['episodes_list'] = $latestEpisodes;
+		$data['series_list'] = $seriesList;
+		$data['script_tag'] = '<script type="text/javascript" src="'. base_url() .'/scripts/homeindex.js"> </script>';
+		$data['main_content'] = 'series/index';
+		$data['left_content'] = 'home/episodeslist';
+        $this->load->view('includes/template', $data);
+	}
+	
+	
 	function togglefavorite(){
 		$favoriteId = trim($this->input->post('favoriteid'));
 		if(is_numeric($favoriteId))
