@@ -19,10 +19,10 @@ if ( ! function_exists('current_userid'))
 	{
 		$CI =& get_instance();
 		$userId = $CI->session->userdata('userid');
-		
+
 		if(isset($userId))
 			return $userId;
-			
+
 		return 0;
 	}
 }
