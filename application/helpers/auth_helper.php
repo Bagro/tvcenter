@@ -26,4 +26,18 @@ if ( ! function_exists('current_userid'))
 		return 0;
 	}
 }
+
+if ( ! function_exists('is_in_group'))
+{
+	function is_in_group($groupId)
+	{
+		$CI =& get_instance();
+		$usrGroupId = $CI->session->userdata("groupid");
+
+		if(isset($usrGroupId) && $usrGroupId == $groupId)
+			return true;
+			
+		return false;
+	}
+}
 ?>

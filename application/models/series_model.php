@@ -111,12 +111,7 @@ class Series_model extends Model {
 	}
 	
 	function list_episodes_ordered_by_date($page, $max_per_page, $sortDESC = true)
-	{
-		/*"select episodes.*, series.name as seriesname , seasons.seasonNr 
-		from episodes 
-		inner join series on episodes.seriesId = series.seriesId 
-		inner join seasons on episodes.seasonId = seasons.seasonId 
-		ORDER BY episodes.created DESC LIMIT $page, $max_per_page";*/
+	{		
 		$this->db->select('episodes.*, series.name as seriesname , seasons.seasonNr');
 		$this->db->from('episodes');
 		$this->db->join('series', 'series.seriesId = episodes.seriesId');
@@ -148,6 +143,27 @@ class Series_model extends Model {
 		return $query->result();
 	}
 	
+	/* Admin specific*/
+	function admin_list_series($offset, $max_per_page) {
+        /*$this->db->select('*');*/
+		$this->db->from('series');		
+		$this->db->limit($max_per_page, $offset);
+		$this->db->orderby('name');
+        $query = $this->db->get();
+        return $query->result();
+    }
+	
+	function admin_list_episodes_for_series($seriesId){
+		$this->db->select('episodes.*, seasons.seasonNr');
+		$this->db->from('episodes');
+		$this->db->join('seasons', 'seasons.seasonId = episodes.seasonId');
+		$this->db->where('episodes.seriesid ='. $seriesId);
+		$this->db->order_by('seasons.seasonNr');
+		$this->db->order_by('episodes.episodeNr');
+		
+		$query = $this->db->get();
+		return $query->result();
+	}
 }
 
 ?>

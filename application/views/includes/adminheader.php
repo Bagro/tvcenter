@@ -24,25 +24,12 @@
 	<div id="page_wrap">		
 		<div id="nav_bar">
 			
-			<div id="main_menu"><img src="<?php echo base_url(); ?>images/bagrotc.png" alt="" />
-				<div id="top_search">
-					<?php
-					echo form_open('series/search');
-					echo form_input('searchtext', 'Serienamn','id="searchtext"');					
-					echo form_submit('submit', 'Sök');
-					echo form_close();
-					?>
-				</div>
+			<div id="main_menu"><img src="<?php echo base_url(); ?>images/bagrotc.png" alt="" />				
 				<ul>
-					<li><a href="<?php echo base_url(); ?>">Start</a></li>
-					<li><a href="<?php echo base_url(); ?>series">Serier</a></li>
-					<li><a href="<?php echo base_url(); ?>series/favorites">Favoriter</a></li>
-					<?php
-						if(is_in_group(4)):
-					?>
-					<li><a href="<?php echo base_url(); ?>admin">Admin</a></li>
-					<?php endif;?>
-					<li><a href="<?php echo base_url(); ?>login/logout">Logga ut</a></li>
+					<li><a href="<?php echo base_url(); ?>admin">Admin start</a></li>
+					<li><a href="<?php echo base_url(); ?>adminseries">Serier</a></li>
+					<li><a href="<?php echo base_url(); ?>adminusers">Användare</a></li>
+					<li><a href="<?php echo base_url(); ?>">Till siten</a></li>
 				</ul>
 				
 			</div>
