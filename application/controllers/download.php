@@ -32,7 +32,7 @@ class Download extends Controller{
 	}
 		
 	private function SendFile($path) {
-	    
+	    ob_end_clean();
 	    if (!is_file($path) || connection_status()!=0)
 	        return(FALSE);
 
