@@ -8,6 +8,7 @@
             } ?>
         </title>
         <link rel="stylesheet" href="<?php echo base_url(); ?>/css/style.css" type="text/css" media="screen" />
+        <link rel="stylesheet" href="<?php echo base_url(); ?>/css/adminstyle.css" type="text/css" media="screen" />
         <script type="text/javascript" src="<?php echo base_url(); ?>/scripts/jquery.js"> </script>
         <script type="text/javascript">
         //<![CDATA[

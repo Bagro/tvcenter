@@ -164,6 +164,14 @@ class Series_model extends Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+	
+	function admin_get_episode($episodeId){
+		$this->db->from('episodes');
+		$this->db->where('episodeid = '. $episodeId);
+		
+		$query = $this->db->get();
+		return $query->result();
+	}
 }
 
 ?>

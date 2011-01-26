@@ -46,7 +46,7 @@ class Adminseries extends Controller {
 		$data['list_title'] = 'Serier';
 		$data['episodes_list'] = $latestEpisodes;
 		$data['series_list'] = $seriesList;
-		$data['script_tag'] = '<script type="text/javascript" src="'. base_url() .'/scripts/homeindex.js"> </script>';
+		$data['script_tag'] = '<script type="text/javascript" src="'. base_url() .'/scripts/admin.js"> </script>';
 		$data['left_content'] = 'home/episodeslist';
         $data['main_content'] = 'admin/series';
 		$this->load->view('includes/admintemplate', $data);

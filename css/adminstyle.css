@@ -1,0 +1,75 @@
+.adminButton{
+    background-color: #fff;
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+    font-size: 9pt;
+    color: #000000;
+    min-width: 25px;
+    /*float: right;*/
+    text-align: center;
+    text-decoration: none;
+	cursor:pointer;
+	/*margin-right:5px;*/
+	border-style:none;
+}
+
+.adminButton a{
+	padding: 10px 10px 10px 10px;
+	text-decoration: none;
+	color:#000;
+}
+
+.adminInvButton{
+    background-color: #000;
+    -moz-border-radius:20px;
+    -webkit-border-radius:20px;
+    font-size: 9pt;
+    color: #fff;
+    min-width: 25px;
+    /*float: right;*/
+    text-align: center;
+    text-decoration: none;
+	cursor:pointer;
+	margin-right:5px;
+	border-style:none;
+}
+
+.seriesToolbar{
+	padding-left:65px;
+	text-align:right;
+}
+
+.episodeToolbar{
+	padding-left:103px;
+}
+
+.adminSeriesEpisodeList{
+    background-color: #ffffff;
+    display: none;
+    list-style: none;
+    padding: 0;
+	margin-top:20px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+.adminSeriesEpisodeListSeason{
+    background-color: #0D5995;
+	background: -moz-linear-gradient(100% 100% 90deg,#063F6B, #0D5995);
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#0D5995), to(#063F6B));
+	color:#f3f3f3;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+	white-space:nowrap;
+	padding-top:3px;
+	padding-bottom:3px;
+}
+
+.editEpisodeTable{
+	padding-top:40px;
+	padding-left:40px;
+}
+
+.editEpisodeTable .label{
+	vertical-align:top;
+	color:#fff;
+}
