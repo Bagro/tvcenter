@@ -27,7 +27,7 @@
                     			<span onclick="ShowEpisode(<?php echo $episode->episodeId ?>)" class="episodeTitle">
 									<?php echo $episode->episodeNr . ': '. $episode->name; ?> 
 								</span>
-                    			<a href="<?php echo base_url(); ?>download/episode/<?php echo $episode->episodeId ?>" class="downloadButton" title="Ladda ner">D</a>
+                    			<a href="<?php echo base_url(); ?>download/episode/<?php echo $episode->episodeId ?>" class="<?php if(isset($episode->download)) echo "downloadedButton"; else echo "downloadButton"; ?>" title="Ladda ner">D</a>
                     			<div id="toggleSeen<?php echo $episode->episodeId ?>" onclick="ToggleSeenStatus(<?php echo $episode->episodeId ?>)" class="<?php if(isset($episode->seen)) echo "seenButton"; else echo "unSeenButton"; ?>" title="Markera som sett">S</div>
                 			</li>
                 		<?php endforeach; ?>
