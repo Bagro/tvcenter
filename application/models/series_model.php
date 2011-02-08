@@ -55,11 +55,11 @@ class Series_model extends Model {
     }
 
 	function list_episodes_for_series($userId, $seriesId){
-		$this->db->select('episodes.*, seasons.seasonNr, seenepisodes.episodeid as seen, downloads.id as download');
+		$this->db->select('episodes.*, seasons.seasonNr, seenepisodes.episodeid as seen, (select id from downloads where fileid=episodefiles.fileid and userid='. $userId .' limit 1) as download');
 		$this->db->from('episodes');
 		$this->db->join('seasons', 'seasons.seasonId = episodes.seasonId');
 		$this->db->join('episodefiles', 'episodefiles.episodeid = episodes.episodeid');
-		$this->db->join('downloads', 'downloads.fileId = episodefiles.fileId and downloads.userId='. $userId, 'left');
+		//$this->db->join('downloads', 'downloads.fileId = episodefiles.fileId and downloads.userId='. $userId, 'left');
 		$this->db->join('seenepisodes', 'seenepisodes.episodeid = episodes.episodeid and seenepisodes.userid='. $userId, 'left');
 		$this->db->where('episodes.seriesid ='. $seriesId);
 		$this->db->order_by('seasons.seasonNr');
@@ -73,10 +73,9 @@ class Series_model extends Model {
 		/*$queryStr = "SELECT e.*, s.seasonNr FROM episodes e 
 						inner join seasons s on s.seasonid=e.seasonid 
                      WHERE s.seriesid = $seriesId AND e.episodeId NOT in (SELECT episodeId FROM seenepisodes WHERE userid = $userId) order by s.seasonNr, e.episodeNr";*/
-        $queryStr = "SELECT e.*, s.seasonNr, d.id as download FROM episodes e 
+        $queryStr = "SELECT e.*, s.seasonNr, (select id from downloads where fileid=ef.fileid and userid=$userId limit 1) as download FROM episodes e 
 						inner join seasons s on s.seasonid=e.seasonid 
-						inner join episodefiles ef ON ef.episodeId = e.episodeId
-						left outer join downloads d ON d.fileId = ef.fileId and d.userid=$userId
+						inner join episodefiles ef ON ef.episodeId = e.episodeId						
                      WHERE s.seriesid = $seriesId AND e.episodeId NOT in (SELECT episodeId FROM seenepisodes WHERE userid = $userId) order by s.seasonNr, e.episodeNr";
         $query = $this->db->query($queryStr);
 
