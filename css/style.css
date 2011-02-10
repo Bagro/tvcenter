@@ -406,7 +406,7 @@ body{
 	margin:0px 5px 0px 0px;
 }
 
-#episode_popup .seenButton{
+#episode_popup .seenButton, #episode_popup .downloadedButton{
 	float:left;
 	margin:0px 5px 0px 0px;
 }

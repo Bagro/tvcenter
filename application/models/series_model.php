@@ -135,8 +135,9 @@ class Series_model extends Model {
 	
 	function get_episode($episodeId, $userId)
 	{
-		$this->db->select('episodes.*, seenepisodes.episodeid as seen');
+		$this->db->select('episodes.*, seenepisodes.episodeid as seen, (select id from downloads where fileid=episodefiles.fileid and userid='. $userId .' limit 1) as download');
 		$this->db->from('episodes');
+		$this->db->join('episodefiles', 'episodefiles.episodeid = episodes.episodeid');
 		$this->db->join('seenepisodes', 'seenepisodes.episodeid = episodes.episodeid and seenepisodes.userid='. $userId, 'left');
 		$this->db->where('episodes.episodeId', $episodeId);
 
