@@ -33,6 +33,7 @@ class Download extends Controller{
 		
 	private function SendFile($path) {
 	    ob_end_clean();
+		$path = htmlspecialchars_decode($path, ENT_QUOTES);
 	    if (!is_file($path) || connection_status()!=0)
 	        return(FALSE);
 

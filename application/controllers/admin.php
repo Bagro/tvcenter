@@ -16,5 +16,14 @@ class Admin extends Controller {
 		$this->load->view('includes/admintemplate', $data);
 	}
 	
+	function verifyfiles(){
+		$files = $this->sm->get_all_files();
+		
+		foreach($files as $file)
+		{
+			if(!file_exists(htmlspecialchars_decode($file->fullname, ENT_QUOTES)))
+				echo $file->fullname ."<br/>";
+		}
+	}
 }
 ?>
