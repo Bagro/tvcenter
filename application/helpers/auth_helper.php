@@ -40,4 +40,17 @@ if ( ! function_exists('is_in_group'))
 		return false;
 	}
 }
+
+if ( ! function_exists('current_sessionId'))
+{
+	function current_sessionId(){
+		$CI =& get_instance();
+		$sessionId = $CI->session->userdata('session_id');
+		
+		if(isset($sessionId))
+			return $sessionId;
+		
+		return false;
+	}
+}
 ?>

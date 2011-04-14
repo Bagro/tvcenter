@@ -4,7 +4,7 @@ class Download extends Controller{
 	function __construct() {
         parent::Controller();
 
-        if (!is_logged_in())
+        if ( $this->router->fetch_method() != 'stream' && !is_logged_in())
             redirect('login/index');
 	}
 	
@@ -31,11 +31,26 @@ class Download extends Controller{
 		}
 	}
 		
-	function stream($episodeId){		
-		$this->load->model('Files_model', 'fm');
-		$userId = current_userid();
+	function stream($request){
+		$ip = $this->input->ip_address();
 		
-		$query = $this->fm->GetFullFileName($episodeId);
+		if (!$this->input->valid_ip($ip))
+			redirect('login/index');
+			
+		$requestArray = explode('_', $request);
+		
+		$this->load->model('users_model', 'um');
+		
+		$userId = $requestArray[2];
+		$sessionId =  $requestArray[1];
+		$query = $this->um->verifyStreamLogin($userId, $sessionId, $ip);
+		
+		if($query->num_rows() <= 0)
+			redirect('login/index');
+				
+		$this->load->model('Files_model', 'fm');
+		
+		$query = $this->fm->GetFullFileName($requestArray[0]);
 		
 		$ip = $this->input->ip_address();
 		

@@ -22,6 +22,7 @@
                     <span onclick="ShowEpisode(<?php echo $episode->episodeId ?>)" class="episodeTitle"><?php echo $episode->episodeNr . ': '. $episode->name; ?> </span>
                         <a href="<?php echo base_url(); ?>download/episode/<?php echo $episode->episodeId ?>" class="<?php if(isset($episode->download)) echo "downloadedButton"; else echo "downloadButton"; ?>" title="Ladda ner">D</a>
                         <div id="toggleSeen<?php echo $episode->episodeId ?>" onclick="ToggleSeenStatus(<?php echo $episode->episodeId ?>)" class="unSeenButton" title="Markera som sett">S</div>
+						<a href="<?php echo base_url(); ?>download/stream/<?php echo $episode->episodeId .'_'. current_sessionId() .'_'. current_userid() ?>" class="streamButton" title="Streaming, kopiera länken till VLC eller liknande..">V</a>
                 </li>
                 <?php endforeach; ?>
                 </ul>
