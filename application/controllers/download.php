@@ -31,7 +31,25 @@ class Download extends Controller{
 		}
 	}
 		
-	private function SendFile($path) {
+	function stream($episodeId){		
+		$this->load->model('Files_model', 'fm');
+		$userId = current_userid();
+		
+		$query = $this->fm->GetFullFileName($episodeId);
+		
+		$ip = $this->input->ip_address();
+		
+		if (!$this->input->valid_ip($ip))
+			return;
+		
+		if($query->num_rows() > 0)
+		{
+			$row = $query->row();			
+			$this->SendFile($row->fullname, true);
+		}
+	}
+	
+	private function SendFile($path, $stream=false) {
 	    ob_end_clean();
 		$path = htmlspecialchars_decode($path, ENT_QUOTES);
 	    if (!is_file($path) || connection_status()!=0)
@@ -53,7 +71,16 @@ class Download extends Controller{
 
 	    header("Cache-Control: ");
 	    header("Pragma: ");
-	    header("Content-Type: application/octet-stream");
+		if($stream)
+		{
+			if(strtoupper(substr($name, strlen($name) - 3, 3)) == 'MKV')
+				header("Content-Type: video/x-matroska");
+			elseif(strtoupper(substr($name, strlen($name) - 3, 3)) == 'AVI')
+				header("Content-Type: video/x-xvid");
+		}
+		else
+			header("Content-Type: application/octet-stream");
+			
 	    header("Content-Length: " .(string)(filesize($path)) );
 	    header('Content-Disposition: attachment; filename="'.$name.'"');
 	    header("Content-Transfer-Encoding: binary\n");
